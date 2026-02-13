@@ -25,3 +25,13 @@ jobs:
           cd frontend
           npm install
           npm run build
+ 
+            - name: Build Backend Docker Image
+        run: |
+          cd backend
+          docker build -t pranavvengatesh191103/mern-backend .
+
+      - name: Build Frontend Docker Image
+        run: |
+          cd frontend
+          docker build -t pranavvengatesh191103/mern-frontend .
