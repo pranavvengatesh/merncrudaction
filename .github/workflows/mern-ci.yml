@@ -49,10 +49,6 @@ jobs:
       - name: Push Frontend Docker Image
         run: |
           docker push pranavvengatesh191103/mern-frontend
-            - name: Deploy to EC2
-              - name: Push Frontend Docker Image
-        run: |
-          docker push pranavvengatesh191103/mern-frontend
 
       - name: Deploy to EC2
         uses: appleboy/ssh-action@v1.0.3
