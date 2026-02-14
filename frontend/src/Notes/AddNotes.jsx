@@ -7,8 +7,8 @@ const AddNotes = () => {
     const [content,setcontent]=useState("");
 
     const addnotes=async()=>{
-await axios.post('http://localhost:5000/api/notes/addnote',{
-            title,
+await axios.post('http://52.66.166.31::5000/api/notes/addnote',{
+          title,
             content
     })
         settitle("");

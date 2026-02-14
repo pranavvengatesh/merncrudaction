@@ -5,7 +5,8 @@ import { useEffect } from 'react';
 const ViewNotes = () => {
     const [notes,setnotes]=useState([]);
     const load=async()=>{
-  const res=await axios.get('http://localhost:5000/api/notes')
+  const res=await axios.get("http://52.66.166.31:5000/api/notes")
+
   setnotes(res.data);
 
 
