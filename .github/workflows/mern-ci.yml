@@ -49,3 +49,20 @@ jobs:
       - name: Push Frontend Docker Image
         run: |
           docker push pranavvengatesh191103/mern-frontend
+            - name: Deploy to EC2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            docker stop mern-backend || true
+            docker rm mern-backend || true
+            docker stop mern-frontend || true
+            docker rm mern-frontend || true
+
+            docker pull pranavvengatesh191103/mern-backend
+            docker pull pranavvengatesh191103/mern-frontend
+
+            docker run -d -p 5000:5000 --name mern-backend pranavvengatesh191103/mern-backend
+            docker run -d -p 80:80 --name mern-frontend pranavvengatesh191103/mern-frontend
